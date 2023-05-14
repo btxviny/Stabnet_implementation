@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import os 
+import random 
 
 class DataGenerator:
     def __init__(self, shape, dataset_path, length = 5, stride = 6):
@@ -13,6 +14,7 @@ class DataGenerator:
         self.stride = stride
         self.shape = shape
         self.video_names = os.listdir(self.stable_path)
+        self.video_names = random.shuffle(self.video_names)
         self.frame_idx = 30
 
     def get_paths(self,video):
